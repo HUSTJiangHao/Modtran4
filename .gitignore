@@ -38,12 +38,6 @@
 *.txt
 *.7sc
 *.tp5
-mtrWidget/Modtran4/Ex6.tp7
-mtrWidget/Modtran4/Ex6.tp6
-mtrWidget/Modtran4/Ex6.tp8
-mtrWidget/Modtran4/excited.7sr
-mtrWidget/Modtran4/excited.plt
-mtrWidget/Modtran4/excited.psc
 *.tp6
 *.tp7
 *.tp8
