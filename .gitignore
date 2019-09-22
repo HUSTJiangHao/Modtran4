@@ -1,0 +1,59 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.dat
+*.FLT
+*.ASC
+*.BIN
+*.F
+*.txt
+*.7sc
+*.tp5
+mtrWidget/Modtran4/Ex6.tp7
+mtrWidget/Modtran4/Ex6.tp6
+mtrWidget/Modtran4/Ex6.tp8
+mtrWidget/Modtran4/excited.7sr
+mtrWidget/Modtran4/excited.plt
+mtrWidget/Modtran4/excited.psc
+*.tp6
+*.tp7
+*.tp8
+*.plt
+*.LST
+*.psc
+*.scn
+*.asv
+*.tlog
+*.log
+*.pdb
+*.ilk
+*.7sr
