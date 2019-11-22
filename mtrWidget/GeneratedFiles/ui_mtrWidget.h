@@ -32,7 +32,8 @@ public:
     QPushButton *btn_startMod;
     QSpacerItem *verticalSpacer;
     QPushButton *btn_openTp7;
-    QPushButton *btn_processTp7;
+    QPushButton *btn_cRadiance;
+    QPushButton *btn_cTransmittance;
     QSpacerItem *verticalSpacer_2;
     QPushButton *btn_clr;
     QVBoxLayout *verticalLayout;
@@ -72,10 +73,15 @@ public:
 
         verticalLayout_2->addWidget(btn_openTp7);
 
-        btn_processTp7 = new QPushButton(centralWidget);
-        btn_processTp7->setObjectName(QStringLiteral("btn_processTp7"));
+        btn_cRadiance = new QPushButton(centralWidget);
+        btn_cRadiance->setObjectName(QStringLiteral("btn_cRadiance"));
 
-        verticalLayout_2->addWidget(btn_processTp7);
+        verticalLayout_2->addWidget(btn_cRadiance);
+
+        btn_cTransmittance = new QPushButton(centralWidget);
+        btn_cTransmittance->setObjectName(QStringLiteral("btn_cTransmittance"));
+
+        verticalLayout_2->addWidget(btn_cTransmittance);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -118,7 +124,8 @@ public:
         btn_openTp5->setText(QApplication::translate("mtrWidgetClass", "\346\211\223\345\274\200tp5\346\226\207\344\273\266", nullptr));
         btn_startMod->setText(QApplication::translate("mtrWidgetClass", "modtran\350\256\241\347\256\227", nullptr));
         btn_openTp7->setText(QApplication::translate("mtrWidgetClass", "\346\211\223\345\274\200tp7\346\226\207\344\273\266", nullptr));
-        btn_processTp7->setText(QApplication::translate("mtrWidgetClass", "tp7\346\226\207\344\273\266\350\247\243\346\236\220", nullptr));
+        btn_cRadiance->setText(QApplication::translate("mtrWidgetClass", "\350\276\220\344\272\256\345\272\246\350\247\243\346\236\220", nullptr));
+        btn_cTransmittance->setText(QApplication::translate("mtrWidgetClass", "\351\200\217\350\277\207\347\216\207\350\256\241\347\256\227", nullptr));
         btn_clr->setText(QApplication::translate("mtrWidgetClass", "\346\270\205\351\231\244\346\226\207\346\234\254", nullptr));
         label->setText(QApplication::translate("mtrWidgetClass", "modtran\350\276\223\345\207\272:", nullptr));
     } // retranslateUi

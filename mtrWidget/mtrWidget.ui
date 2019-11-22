@@ -52,9 +52,16 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btn_processTp7">
+       <widget class="QPushButton" name="btn_cRadiance">
         <property name="text">
-         <string>tp7文件解析</string>
+         <string>辐亮度解析</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn_cTransmittance">
+        <property name="text">
+         <string>透过率计算</string>
         </property>
        </widget>
       </item>

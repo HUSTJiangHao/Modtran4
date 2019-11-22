@@ -22,8 +22,9 @@ mtrWidget::mtrWidget(QWidget *parent)
 	connect(ui.btn_openTp5, SIGNAL(clicked()), this, SLOT(on_btn_OpenTp5_clicked()));
 	connect(ui.btn_startMod, SIGNAL(clicked()), this, SLOT(on_btn_startMod_clicked()));
 	connect(ui.btn_openTp7, SIGNAL(clicked()), this, SLOT(on_btn_OpenTp7_clicked()));
-	connect(ui.btn_processTp7, SIGNAL(clicked()), this, SLOT(on_btn_processTp7_clicked()));
+	connect(ui.btn_cRadiance, SIGNAL(clicked()), this, SLOT(on_btn_cRadiance_clicked()));
 	connect(ui.btn_clr, SIGNAL(clicked()), this, SLOT(on_btn_clr_clicked()));
+	connect(ui.btn_cTransmittance, SIGNAL(clicked()), this, SLOT(on_btn_cTransmittance_clicked()));
 
 	connect(&modtranThread, SIGNAL(started()), this, SLOT(on_modtranThread_started()));
 	connect(&modtranThread, SIGNAL(finished()), this, SLOT(on_modtranThread_finished()));
@@ -145,7 +146,7 @@ void mtrWidget::on_btn_OpenTp7_clicked()
 
 
 
-void mtrWidget::on_btn_processTp7_clicked()
+void mtrWidget::on_btn_cRadiance_clicked()
 {
 	QFile Tp7File(tp7FileName);
 	QString str;
@@ -316,6 +317,74 @@ void mtrWidget::on_modtranThread_finished()
 void mtrWidget::on_btn_clr_clicked()
 {
 	ui.modtranStateText->clear();
+}
+
+void mtrWidget::on_btn_cTransmittance_clicked()
+{
+	QFile Tp7File(tp7FileName);
+	QString str;
+	QString strSim;
+	QString strGet;
+
+	double TransTotal = 0.0;  // 透过统计
+	double Trans = 0.0;
+
+
+	if (!Tp7File.exists())
+	{
+		QMessageBox tp7warn;
+		tp7warn.setText(u8"请输入 .tp7 文件！");
+		tp7warn.setWindowTitle(u8"提醒");
+		tp7warn.exec();
+		return;
+	}
+	else if (!Tp7File.open(QIODevice::ReadOnly | QIODevice::Text))
+	{
+		return;
+	}
+
+
+	QTextStream Tp7Stream(&Tp7File);
+	str = Tp7Stream.readLine();
+
+	strSim = str.simplified();
+
+
+
+	for (int i = 0; i < 10; i++)
+	{
+		str = Tp7Stream.readLine();
+	}
+
+
+	while (true)
+	{
+		str = Tp7Stream.readLine();
+
+		if (Tp7Stream.atEnd())
+		{
+
+			break;
+		}
+		else
+		{
+			strSim = str.simplified();
+			strGet = strSim.section(" ", 1, 1);  // 需要取的第几列 第一列表示透过率
+
+			Trans = strGet.toDouble();
+
+			TransTotal += Trans;
+			//qDebug() << TransTotal << endl;
+		}
+	}
+
+		
+
+		QString displayRadNum = QString::number(TransTotal, 'f', 2);
+
+		ui.modtranStateText->appendPlainText(u8"计算透过率数值：  ");
+		ui.modtranStateText->appendPlainText(displayRadNum);
+		ui.modtranStateText->appendPlainText("===================================================");
 }
 
 /*****************************************************************************************************************/

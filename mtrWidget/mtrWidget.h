@@ -25,8 +25,9 @@ private slots:
 	void on_btn_OpenTp5_clicked();  // 点击打开tp5文件
 	void on_btn_startMod_clicked();  // 点击开始modtran计算
 	void on_btn_OpenTp7_clicked();  // 点击打开tp7
-	void on_btn_processTp7_clicked();  // 点击解析tp7
+	void on_btn_cRadiance_clicked();  // 点击解析tp7
 	void on_btn_clr_clicked();
+	void on_btn_cTransmittance_clicked();
 
 	void on_modtranThread_started();  
 	void on_modtranThread_finished(); 
